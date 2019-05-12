@@ -1,18 +1,23 @@
 # 개발 순서 
 
 ### 1. python을 설치한다.
-
-### 2. python code를 개발할 IDE를 선택한다.
-
-### 3. virtual envirment를 구성한다.
-
-### 4. virtual envirment에 pip를 이용하여 API를 설치한다.
-
-  - Django 설치
-  - 
-### 5. Django를 이용하여 project를 시작한다.
+  - 가상환경 설정했는지 잘 확인 합시다.
   
-  `django-admin startproject [프로젝트명] . `
+### 2. python code를 개발할 IDE를 선택한다.
+  - pycharm , Atom, anaconda, visual 등 등
+  
+### 3. virtual envirment를 구성한다.
+  - 안해주면 여러가지 module들이 엉켜서 완전 망가질 수 있습니다.
+  - pip를 최신 버전으로 업데이트 합니다. `python -m pip install --upgrade pip`
+  - consol에 `python -m venv myvenv`를 한다.
+  - 또는, 알아서 가상환경을 IDE에서 구성해준다.
+  
+### 4. virtual envirment에 pip를 이용하여 API를 설치한다.
+  - Django 설치 `pip install django`
+  
+### 5. Django를 이용하여 project를 시작한다.
+  - 프로젝트 시작 : `django-admin startproject [프로젝트명] . `
+  - 프로젝트에서 새로운 app 시작 : `python manage.py startapp [app의 이름]`
   
 ### 6. 만들어진 file의 settings.py를 입맛에 따라 수정한다.
   - 새로운 model을 추가하거나 다른 형태의 개발을 수행하고자 한다면, 이를 settings.py의 INSTALLED_APPS에 추가한다.
@@ -112,6 +117,7 @@ Running migrations:
 
 ### 9. 해당 html 문서를 어떤 식으로 보여줄지를 views.py를 통해 결정한다.
   - html에 어떤 인자를 넘겨줄지 어떤식으로 보여줄지를 판단하여 이를 정합니다.
+  
 ### 10. html 문서를 수정한다.
   - html을 동적으로 볼 수 있도록 code를 수정하고 표현합니다.
   - div를 이용하는 방식이 동적으로 보여주기에는 좋습니다.
