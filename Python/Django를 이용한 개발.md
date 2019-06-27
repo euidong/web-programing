@@ -25,6 +25,10 @@
   - timezone 확인 하기.
   - 그 밖에 추가 사항 반드시 기록할 것
   
+  ```python
+    LANGUAGE_CODE = 'ko-kr'
+    TIME_ZONE = 'Asia/Seoul'
+  ```
 ### 7. models.py에 만들고자 하는 model추가
   - 어떤 model을 사용할 것인지 정의해야합니다.
   - 해당 model을 정의하였다면, 이를 바탕으로 database를 생성할 수 있도록 consol을 키고 명령어를 실행해주어야합니다.
