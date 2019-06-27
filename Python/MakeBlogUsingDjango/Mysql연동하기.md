@@ -19,9 +19,9 @@ pip install sqlparse
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'khu_ce_notice', # DB명
-        'USER': 'root', # 데이터베이스 계정
-        'PASSWORD': '3213210a', # 계정 비밀번호
+        'NAME': 'notice', # DB명
+        'USER': 'euidong', # 데이터베이스 계정
+        'PASSWORD': '1234', # 계정 비밀번호
         'HOST': 'localhost', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
