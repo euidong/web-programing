@@ -53,8 +53,8 @@ Running migrations:
   Applying blog.0001_initial... OK
 ```
   * migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 이에 model에 알맞게 데이터를 저장한다. <br>
-  대신 'DIRS': [os.path.join(BASE_DIR, 'templates')],
-  
+  대신 settings.py의 TEMPLATES에 'DIRS': [],를 'DIRS': [os.path.join(BASE_DIR, 'templates')], 
+   
 ### 8. html 문서를 우선적으로 작성한다.
   static하고 일반적인 html문서를 작성한다.
   보통 base.html 같은 형태로 기본적인 틀을 갖추는 html문서이다.
