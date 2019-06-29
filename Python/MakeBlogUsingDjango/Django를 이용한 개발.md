@@ -60,11 +60,14 @@ TIME_ZONE = 'Asia/Seoul'
 ```
 
 ### 7. DB와 MODEL을 연결하기
-  
+  - model은 DB의 table과 mapping 됩니다.
+  - 해당 model에서 만들고 그 형태를 migration으로 만들고(makemigrations), 이를 바탕으로 DB에 반영합니다.(migrate) 
   - 어떤 model을 사용할 것인지 정의해야합니다.
   - 해당 model을 정의하였다면, 이를 바탕으로 database를 생성할 수 있도록 consol을 키고 명령어를 실행해주어야합니다.
 
-`migration 생성`
+
+migration 생성
+
 ```
 (myvenv) ~/djangogirls$ python manage.py makemigrations blog
 Migrations for 'blog':
@@ -72,7 +75,7 @@ Migrations for 'blog':
   - Create model [model명]
 ```
 
-`migrate에 model 저장`
+DB에 model 저장
 
 ```
 (myvenv) ~/djangogirls$ python manage.py migrate blog
@@ -82,11 +85,13 @@ Running migrations:
   Rendering model states... DONE
   Applying blog.0001_initial... OK
 ```
-  * migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 이에 model에 알맞게 데이터를 저장한다.
-  
-   
-### 8. html 문서를 우선적으로 작성한다.
-  static하고 일반적인 html문서를 작성한다.
+
+migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 이에 model에 알맞게 데이터를 저장한다.
+
+<strong>역순으로 DB에 이미 있는 것을 Model과 연동하는 것도 해보고 싶지만, 아직 필요성을 못느껴서 일단은 다음 기회에.... </strong>
+
+### 8. html 문서를 작성한다.
+  static 일반적인 html문서를 작성한다.
   보통 base.html 같은 형태로 기본적인 틀을 갖추는 html문서이다.
   어떤 css를 적용할 것이고, site에서나 공통적으로 보여줄 어는 요소를 선택한다.
   
@@ -145,20 +150,41 @@ Running migrations:
 </body>
 </html>
 ```
-  - {% load static %} = static 폴더의 내용을 참고하겠다. import의 기능을합니다.
+  - {% load static %} = static 폴더의 내용을 참고하겠다. import의 기능을합니다. 보통 font, css, image 등을 불러옵니다.
   - `<meta charset ="utf-8">`은 필수입니다. (한국어 입력을 위함)
   - static에 있는 css, logo 등을 활용해줍니다.
   - {{ if }} 내용 {{ endif }} if 구문 잘 활용합시다.
-  - {% block content %} {% endblock %} 은 다른 html 문서에서 해당 base.html문서를 불러올 수 있습니다.
+  - {% block content %} {% endblock %} 은 다른 html 문서에서 해당 base.html문서를 불러오고 block 내부만 정의 할 수 있습니다.
     <br> {% extends 'blog/base.html' %} {% block content %} 내용 {% endblock %}
 
 ### 9. 해당 html 문서를 어떤 식으로 보여줄지를 views.py를 통해 결정한다.
   - html에 어떤 인자를 넘겨줄지 어떤식으로 보여줄지를 판단하여 이를 정합니다.
+  - render형태로 return을 수행합니다. request를 통해 REST API를 구성할 수 있습니다. 
+  - render(request, html문서, 추가로 보내줄 요소) 형태로 return 하는 것을 기본으로 한다.
+  - model로 부터 인자를 건내받을 수 있습니다. 즉, DB에 데이터를 넣거나 빼고 조회하는 행위를 수행할 수 있습니다.
   
-### 10. html 문서를 수정한다.
-  - html을 동적으로 볼 수 있도록 code를 수정하고 표현합니다.
-  - div를 이용하는 방식이 동적으로 보여주기에는 좋습니다.
+```python
+from django.shortcuts import render
+from .models import Notice
+
+# Create your views here.
+
+def test_view(request) :
+    notices = Notice.objects.all()
+    context = {'notices':notices}
+    return render(request, 'main.html', context)
+```
   
-### 11. urls.py에 해당 view를 어떤 경우 보여줄지 결정한다.
+  
+### 10. urls.py에 해당 view를 어떤 경우 보여줄지 결정한다.
   - 주소창에 어떤 값을 입력했을 때 어떤 view를 보여줄 것인지를 urls.py를 통해 판단합니다.
-  
+```python
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.test_view, name ='test'),
+    path('admin/', admin.site.urls),
+]
+```
