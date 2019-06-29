@@ -15,27 +15,52 @@
 ### 4. virtual envirment에 pip를 이용하여 API를 설치한다.
   - Django 설치 `pip install django`
   
-### *만약 anaconda를 이용한 다면,
-conda install을 이용해서 환경 구축할 것.
-[링크]()
-
 ### 5. Django를 이용하여 project를 시작한다.
   - 프로젝트 시작 : `django-admin startproject [프로젝트명] . `
   - 프로젝트에서 새로운 app 시작 : `python manage.py startapp [app의 이름]`
   
 ### 6. 만들어진 file의 settings.py를 입맛에 따라 수정한다.
   - 새로운 model을 추가하거나 다른 형태의 개발을 수행하고자 한다면, 이를 settings.py의 INSTALLED_APPS에 추가한다.
-  - database 어떤 것을 사용할 것인지 작성(sqlite가 django의 기본 db)
+  - database 어떤 것을 사용할 것인지 작성(sqlite가 django의 기본 db) [다른 db연동하기]()
   - timezone 확인 하기.
+  - INSTALLED_APPS에 사용할 app 추가. (물론 처음 시작할 때 만든 app도 마찬가지) 
+  - TEMPLATES에서 'DIRS'는 기본 경로인데 이를 'DIRS': [os.path.join(BASE_DIR, 'templates')] 로 하면 settings.py의 경로에서 templates폴더 안에 있는 것을 기본 경로로 한다. (여기서 os는 python에서 경로를 지정할 때 쓰이는 모듈이다.)
   - 그 밖에 추가 사항 반드시 기록할 것
   
-  ```python
-    LANGUAGE_CODE = 'ko-kr'
-    TIME_ZONE = 'Asia/Seoul'
-  ```
-* 그냥 html을 화면에 띄우고 싶다면 manage.py 폴더에서 templates 폴더를 만들고 그 안에 html 파일을 넣으면 된다.  <br>
-대신 settings.py의 TEMPLATES에 'DIRS': [],를 'DIRS': [os.path.join(BASE_DIR, 'templates')], 
-### 7. models.py에 만들고자 하는 model추가
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'khu_alarm',
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]    
+LANGUAGE_CODE = 'ko-kr'
+TIME_ZONE = 'Asia/Seoul'
+```
+
+### 7. DB와 MODEL을 연결하기
+  
   - 어떤 model을 사용할 것인지 정의해야합니다.
   - 해당 model을 정의하였다면, 이를 바탕으로 database를 생성할 수 있도록 consol을 키고 명령어를 실행해주어야합니다.
 
@@ -48,6 +73,7 @@ Migrations for 'blog':
 ```
 
 `migrate에 model 저장`
+
 ```
 (myvenv) ~/djangogirls$ python manage.py migrate blog
 Operations to perform:
