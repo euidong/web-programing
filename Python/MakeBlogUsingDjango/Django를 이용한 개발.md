@@ -15,6 +15,10 @@
 ### 4. virtual envirment에 pip를 이용하여 API를 설치한다.
   - Django 설치 `pip install django`
   
+### *만약 anaconda를 이용한 다면,
+conda install을 이용해서 환경 구축할 것.
+[링크]()
+
 ### 5. Django를 이용하여 project를 시작한다.
   - 프로젝트 시작 : `django-admin startproject [프로젝트명] . `
   - 프로젝트에서 새로운 app 시작 : `python manage.py startapp [app의 이름]`
