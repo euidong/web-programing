@@ -4,6 +4,7 @@
 
 
 conda list
+```
 WARNING: The conda.compat module is deprecated and will be removed in a future release.
 # packages in environment at C:\Users\justi\Anaconda3\envs\web_django:
 #
@@ -33,3 +34,4 @@ vc                        14.1                 h0510ff6_4
 vs2015_runtime            14.15.26706          h3a45250_4
 wheel                     0.33.4                   py37_0
 wincertstore              0.2                      py37_0
+```
