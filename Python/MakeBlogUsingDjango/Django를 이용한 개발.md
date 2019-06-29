@@ -29,8 +29,8 @@
     LANGUAGE_CODE = 'ko-kr'
     TIME_ZONE = 'Asia/Seoul'
   ```
-* 그냥 html을 화면에 띄우고 싶다면 manage.py 폴더에서 templates 폴더를 만들고 그 안에 html 파일을 넣으면 된다. 
-
+* 그냥 html을 화면에 띄우고 싶다면 manage.py 폴더에서 templates 폴더를 만들고 그 안에 html 파일을 넣으면 된다.  <br>
+대신 settings.py의 TEMPLATES에 'DIRS': [],를 'DIRS': [os.path.join(BASE_DIR, 'templates')], 
 ### 7. models.py에 만들고자 하는 model추가
   - 어떤 model을 사용할 것인지 정의해야합니다.
   - 해당 model을 정의하였다면, 이를 바탕으로 database를 생성할 수 있도록 consol을 키고 명령어를 실행해주어야합니다.
@@ -52,8 +52,8 @@ Running migrations:
   Rendering model states... DONE
   Applying blog.0001_initial... OK
 ```
-  * migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 이에 model에 알맞게 데이터를 저장한다. <br>
-  대신 settings.py의 TEMPLATES에 'DIRS': [],를 'DIRS': [os.path.join(BASE_DIR, 'templates')], 
+  * migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 이에 model에 알맞게 데이터를 저장한다.
+  
    
 ### 8. html 문서를 우선적으로 작성한다.
   static하고 일반적인 html문서를 작성한다.
