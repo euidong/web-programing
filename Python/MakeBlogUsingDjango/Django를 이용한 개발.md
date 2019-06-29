@@ -21,7 +21,7 @@
   
 ### 6. 만들어진 file의 settings.py를 입맛에 따라 수정한다.
   - 새로운 model을 추가하거나 다른 형태의 개발을 수행하고자 한다면, 이를 settings.py의 INSTALLED_APPS에 추가한다.
-  - database 어떤 것을 사용할 것인지 작성(sqlite가 django의 기본 db) [다른 db연동하기]()
+  - database 어떤 것을 사용할 것인지 작성(sqlite가 django의 기본 db) [다른 db연동하기](https://github.com/euidong/web-programing/blob/master/Python/MakeBlogUsingDjango/Mysql%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0.md)
   - timezone 확인 하기.
   - INSTALLED_APPS에 사용할 app 추가. (물론 처음 시작할 때 만든 app도 마찬가지) 
   - TEMPLATES에서 'DIRS'는 기본 경로인데 이를 'DIRS': [os.path.join(BASE_DIR, 'templates')] 로 하면 settings.py의 경로에서 templates폴더 안에 있는 것을 기본 경로로 한다. (여기서 os는 python에서 경로를 지정할 때 쓰이는 모듈이다.)
