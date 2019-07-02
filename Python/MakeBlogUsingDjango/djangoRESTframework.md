@@ -81,4 +81,4 @@ def user_list(request) :
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 ```
 ***
-출처 : [django-restframework 홈페이지](https://django-rest-framework.org)
+참고 : [django-restframework 홈페이지](https://django-rest-framework.org)
