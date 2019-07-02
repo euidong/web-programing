@@ -9,29 +9,16 @@
   2. Header (헤더)
   3. Blank Line (빈줄)
   4. Body (바디)
-  
-<p>1) 요청 메세지 </p>
-```http
-  GET http://example.com:80/book/shakespeare HTTP/1.1
-```
-
-<p>2) 응답 메세지</p>
-```http
-  HTTP/1.1 200 OK
-  Content-Type: application/xhtml+xml; charset=utf-8
-  
-  <html>
-  ...
-  </html>
-```
 
 ### 1. Start Line
 
 <p>1) 요청 메세지 </p>
-```http
+
+```
   GET http://example.com:80/book/shakespeare HTTP/1.1
 ```
 
+```
 (1) 요청 방식 
 POST, GET, PUT, DELETE 가 메인으로 사용되고 각각은 CRUD와 대응된다. 
 Create, Read, Update, Delete
@@ -39,9 +26,11 @@ Create, Read, Update, Delete
 (2) 요청 URI 
 
 (3) 프로토콜 버전 
+```
 
 <p>2) 응답 메세지</p>
-```http
+
+```
   HTTP/1.1 200 OK
   Content-Type: application/xhtml+xml; charset=utf-8
   
