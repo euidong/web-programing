@@ -25,6 +25,7 @@ Create, Read, Update, Delete
 
 (2) 요청 URI 
 
+
 (3) 프로토콜 버전 
 ```
 
@@ -32,9 +33,17 @@ Create, Read, Update, Delete
 
 ```
   HTTP/1.1 200 OK
-  Content-Type: application/xhtml+xml; charset=utf-8
-  
-  <html>
-  ...
-  </html>
+```
+
+```
+(1) 프로토콜 버전
+
+(2) 상태 코드
+1XX = 임시 응답
+2XX = 성공
+3XX = URI의 정보가 변경되었음.
+4XX = 클라이언트에 의한 Error 요청 메세지가 잘못됨.
+5XX = 서버에 의한 Error 서버 부하 등.
+
+(3) 상태 텍스트
 ```
