@@ -48,4 +48,5 @@ html, css, javascript 등으로 작성된 정적 페이지를 정의하는 요�
 2. 웹 어플리케이션 서버
 
 python, php, c++ 등  여러가지 언어를 통해 형태와 동작을 구현하는 서버이다. 이러한 연산은 많은 처리를 필요로 한다.
+
 <img src="http://basolutions.co.kr/wp-content/uploads/2015/12/web-apps.gif">
