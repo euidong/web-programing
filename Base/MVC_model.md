@@ -47,8 +47,29 @@ class Comment(models.Model):
 ### V = View
 
 Client에게 어떻게 자료를 보여줄지를 정의한다.
-def 즉, 함수로 정의되어 있으며 url을 연결해준다. <br>
-또한, url을 넘기는 과정에서 model을 같이 전달해주어 해당 위치에서 그것을 사용하는 것이 가능하다.
+python-django에서는 template으로 표현한다. 대게 정적 page를 의미함.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <p>This is my page</p>
+  </body>
+</html>
+```
+
+
+### C = Controler
+
+URI를 통해 WEB site를 Control한다. <br>
+def 즉, 함수로 정의되어있다. <br>
+동작과 행동을 request를 통하여 수행한다. <br>
+python-django에서는 view를 이용하여 표현한다.
+
 
 `views.py`
 ```python
@@ -125,25 +146,3 @@ def add_comment_to_post(request, pk):
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
 ```
 
-### C = Controler
-
-URI를 통해 WEB site를 Control한다. <br>
-현재까지는 가장 간단한 형태의 urls.py를 이용하여 위치이동 등을 나타냈다.
-
-`urls.py`
-```python
-from django.urls import path
-from django.conf.urls import include, url
-from . import views
-
-urlpatterns = [
-    path('', views.post_list, name='post_list'),
-    path('post/<int:pk>/', views.post_detail, name='post_detail'),
-    path('post/new', views.post_new, name='post_new'),
-    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
-    url(r'^drafts/$', views.post_draft_list, name='post_draft_list'),
-    url(r'^post/(?P<pk>\d+)/publish/$', views.post_publish, name='post_publish'),
-    url(r'^post/(?P<pk>\d+)/remove/$', views.post_remove, name='post_remove'),
-    url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
-]
-```
