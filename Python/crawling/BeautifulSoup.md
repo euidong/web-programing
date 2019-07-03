@@ -9,7 +9,7 @@ urllib를 이용한다.
 ```python
 import urllib.request
 
-with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as html :
+with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as r :
   
 ```
 
@@ -21,7 +21,7 @@ with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2"
 import urllib.request
 from bs4 import BeautifulSoup
 
-with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as html :
+with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as r :
   soup = BeautifulSoup(r, "html.parser")
 ```
 
@@ -34,7 +34,7 @@ But, 중복된 종류가 있다면, 맨 첫번째로 나오는 대상만 가져�
 import urllib.request
 from bs4 import BeautifulSoup
 
-with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as html :
+with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as r :
   soup = BeautifulSoup(r, "html.parser")
   print(soup.head.title)
   print(soup.body.table)
@@ -52,7 +52,7 @@ with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2"
 import urllib.request
 from bs4 import BeautifulSoup
 
-with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as html :
+with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as r :
   soup = BeautifulSoup(r, "html.parser")
   print(soup.find(string = "664"))
   print(soup.find("td", class_="text_center"))
@@ -70,7 +70,7 @@ find에 limit가 추가된 형태로 대상의 수를 제한할 수 있습니다
 import urllib.request
 from bs4 import BeautifulSoup
 
-with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as html :
+with urllib.request.urlopen("http://ce.khu.ac.kr/index.php?hCode=BOARD&bo_idx=2") as r :
   soup = BeautifulSoup(r, "html.parser")
   print(soup.find_all(string = "664"))
   print(soup.find_all("td", class_="text_center"))
