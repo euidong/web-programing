@@ -1,6 +1,6 @@
 # Django URL 설정법
 
-### Base
+## Base
 ```python
 from django.urls import path
 from . import views
@@ -24,7 +24,7 @@ urlpatterns = [
 ]
 ```
 
-### include
+## include
 1) 외부 include
 ```python
 from django.urls import path, include
@@ -56,8 +56,8 @@ urlpatterns = [
 ```
 path안에 path 배열을 넣는 것이 가능하다는 것이다.
 
-### <mark>url로 변수받기 </mark>
-#### Base
+## url로 변수받기 
+### Base
 `urls.py`
 ```python
 from django.urls import path
@@ -67,8 +67,8 @@ urlpatterns = [
     path('<username>/', views.get_list_by_user),
 ]
 ```
-
-username에 해당하는 url을 입력받으면,
+(url 갯수의 제한은 없습니다. ,를 통해 계속 이어줄 수 있습니다. 이렇게 되면 url상에서는 /로 구분됩니다.) <br>
+username에 해당하는 url을 입력받으면, 
 
 `views.py`
 ```python
@@ -78,6 +78,31 @@ def get_list_by_user(request, username):
     return HttpResponse("{}님 안녕하세요!".format(username))
 ```
 
-이를 view에게 넘겨주고, 이를 변수로 사용할 수 있습니다.(url 갯수의 제한은 없습니다.)
+이를 view에게 넘겨주고, 이를 변수로 사용할 수 있습니다.
 
-#### converter
+### use converter
+받을 수 있는 변수의 type을 제한하는 기능을 수행합니다.
+
+str : 경로 구분자를 제외한 비어 있지 않은 문자열 <br>
+path: 경로 구분자를 포함한 비어 있지 않은 문자열 <br>
+int : 0 또는 임의의 양의 정수와 일치합니다. <br>
+slug : 문자 또는 숫자와 하이픈 및 밑줄 문자로 구성된 슬러그 문자열과 일치합니다. <br>
+
+`urls.py`
+```python
+urlpatterns = [
+    path('<username>/<int:articleId>', views.get_user_article),  
+]
+
+```
+
+`views.py`
+```python
+def get_user_article(request, username, articleId):
+    print("username : ", username)
+    print("articleId", articleId)
+    return HttpResponse("{}의 블로그 {}번 글이 출력됩니다!".format(username, articleId))
+```
+ex. http://127.0.0.1:8000/euidong/1
+
+## Re_path
