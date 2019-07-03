@@ -1,6 +1,8 @@
 # Django URL 설정법
 
-## Base
+# path
+
+## 1. Base
 ```python
 from django.urls import path
 from . import views
@@ -24,8 +26,8 @@ urlpatterns = [
 ]
 ```
 
-## include
-1) 외부 include
+## 2. include
+### 1) 외부 include
 ```python
 from django.urls import path, include
 from . import views
@@ -39,7 +41,7 @@ Django에서는 하나의 web_server를 두고, 여러 개의 app을 만들어�
 이때, main으로 만든 app의 urls.py에서 각 각의 app의 urls.py를 include해주어야 한다. <br>
 대게 이때에 url의 이름은 해당 app의 이름으로 하는 것이 일반적이다.
 
-2) 내부 include
+### 2) 내부 include
 ```python
 from django.urls import path, include
 from . import views
@@ -56,8 +58,8 @@ urlpatterns = [
 ```
 path안에 path 배열을 넣는 것이 가능하다는 것이다.
 
-## url로 변수받기 
-### Base
+## 3. url로 변수받기 
+### 1) Base
 `urls.py`
 ```python
 from django.urls import path
@@ -80,7 +82,7 @@ def get_list_by_user(request, username):
 
 이를 view에게 넘겨주고, 이를 변수로 사용할 수 있습니다.
 
-### use converter
+### 2) use converter
 받을 수 있는 변수의 type을 제한하는 기능을 수행합니다.
 
 str : 경로 구분자를 제외한 비어 있지 않은 문자열 <br>
@@ -105,4 +107,4 @@ def get_user_article(request, username, articleId):
 ```
 ex. http://127.0.0.1:8000/euidong/1
 
-## Re_path
+# Re_path
