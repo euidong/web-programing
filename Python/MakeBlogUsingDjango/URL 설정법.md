@@ -1,6 +1,9 @@
 # Django URL 설정법
+2가지 방식이 있다.<br>
+- path를 쓰는 방식
+- re_path를 쓰는 방식
 
-# path
+# Path
 
 ## 1. Base
 ```python
