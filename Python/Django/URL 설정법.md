@@ -186,4 +186,7 @@ def get_cellphone(request, cellphone):
 http://127.0.0.1:8000/repath/position-parameter/01055557777 <br>
 http://127.0.0.1:8000/repath/position-parameter/01099995555 <br>
 http://127.0.0.1:8000/repath/position-parameter/0105555777 <br>
-를 실행하는 경우, 2번째만 실패한다.
+를 실행하는 경우, 3번째만 실패한다.
+
+***
+출처 : https://suwoni-codelab.com/django/2018/03/24/Django-Url-function/
