@@ -159,7 +159,7 @@ migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 �
 
 ### 9. 해당 html 문서를 어떤 식으로 보여줄지를 views.py를 통해 결정한다.
   - html에 어떤 인자를 넘겨줄지 어떤식으로 보여줄지를 판단하여 이를 정합니다.
-  - render형태로 return을 수행합니다. request를 통해 REST API를 구성할 수 있습니다. 
+  - render형태로 return을 수행합니다.
   - render(request, html문서, 추가로 보내줄 요소) 형태로 return 하는 것을 기본으로 한다.
   - model로 부터 인자를 건내받을 수 있습니다. 즉, DB에 데이터를 넣거나 빼고 조회하는 행위를 수행할 수 있습니다.
   
@@ -188,3 +188,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
+[URL 설정 방법](https://github.com/euidong/web-programing/blob/master/Python/MakeBlogUsingDjango/URL%20%EC%84%A4%EC%A0%95%EB%B2%95.md)
