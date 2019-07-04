@@ -22,7 +22,7 @@ while (True) :
             if count != -1: # 첫번째 index 열 거르기
                 if post.contents[1].get_text() > RECENT_POST_NUMBER :
                     # db(mysql)와 연결
-                    connection = pymysql.connect(host = 'localhost', port = 3306, user='root', passwd='3213210a', db = 'khu_ce_notice', charset='utf8')
+                    connection = pymysql.connect(host = 'localhost', port = 3306, user='user1', passwd='1234', db = 'notice', charset='utf8')
                     
                     # 파일에 쓸 가장 최근 업로드된 데이터를 저장 
                     if count == 0 : 
