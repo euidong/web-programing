@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> sign_up </title>
+    </head>
+    <body>
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                <p> E-Mail </p>
+                <input type = "text" name = "email" >
+                <p> Password </p>
+                <input type = "password" name = "password">
+                <p> First Name </p>
+                <input type = "text" name = "first_name" >
+                <p> Last Name </p>
+                <input type = "text" name = "last_name">
+                <br>
+                <input type = "submit" name = "submit_btn" value = "Sign up">
+                <input type = "button" name = "sign_in_btn" value = "To Sign in" onclick="location.href = '../'">
+            </form>
+        </div>
+        {{ message }}
+    </body>
+</html>

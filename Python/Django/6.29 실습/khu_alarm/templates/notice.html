@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> khu_ce_noticer </title>
+    </head>
+    <body>
+        <p> 컴퓨터공학과 공식 홈페이지 http://www.ce.khu.ac.kr </p>
+        <table>
+            <tr>
+                <td><p> 번호 </p></td>
+                <td><p> 게시물 </p></td>
+                <td><p> 게시일 </p></td>
+                <td><p> 주소 </p></td>
+            </tr>
+            <tbody>
+            {% for notice in notices %}
+            <tr>
+                <td>{{notice.id}}</td>
+                <td>{{notice.name}}</td>
+                <td>{{notice.date}}</td>
+                <td><a href = {{notice.url}} >{{notice.url}} </a></td>
+            </tr>
+            {% endfor %}    
+            </tbody>
+        </table>
+    </body>
+</html>
