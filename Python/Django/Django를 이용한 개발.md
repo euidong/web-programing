@@ -164,7 +164,7 @@ migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 �
   - REST API로 구현하여 Json형태로 return하기 위해서 Response를 이용할 수도 있습니다.(from rest_framework.response import Response)
   - render(request, html문서, 추가로 보내줄 요소) 형태로 return 하는 것을 기본으로 한다.
   - model로 부터 인자를 건내받을 수 있습니다. 즉, DB에 데이터를 넣거나 빼고 조회하는 행위를 수행할 수 있습니다.
-  - 입력을 받을 때는 url의 인자도 받을 수 있습니다.([참고](https://github.com/euidong/web-programing/blob/master/Python/MakeBlogUsingDjango/URL%20%EC%84%A4%EC%A0%95%EB%B2%95.md#3-url%EB%A1%9C-%EB%B3%80%EC%88%98%EB%B0%9B%EA%B8%B0))
+  - 입력을 받을 때는 url의 인자도 받을 수 있습니다.([참고](https://github.com/euidong/web-programing/blob/master/Python/Django/Mysql%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0.md))
 ```python
 from django.shortcuts import render
 from .models import Notice
