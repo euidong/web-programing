@@ -30,14 +30,17 @@ ex)
 {{}}안에 context를 통해 보내주는 대상의 key값을 입력하면 value를 얻을 수 있다.
 
 
-### extends, blcok
+### load, extends, blcok 
+{% load static %}= static 폴더의 내용을 참고한다. import의 기능을 한다. 보통 font, css, image 등을 불러온다.
 html파일을 엮을 수 있게한다.
 여러 개의 html 파일의 중복되는 코드를 extends를 통해 불러오고 싶은 html 파일을 불러올 수 있다.<br>
 그리고 불러오는 html 파일의 block부분을 필요에 따라 추가할 수 있다.
+
 ex)
 
 `base.html`
 ```html
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
