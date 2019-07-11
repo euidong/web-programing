@@ -21,7 +21,7 @@
   
 ### 6. 만들어진 file의 settings.py를 입맛에 따라 수정한다.
   - 새로운 model을 추가하거나 다른 형태의 개발을 수행하고자 한다면, 이를 settings.py의 INSTALLED_APPS에 추가한다.
-  - database 어떤 것을 사용할 것인지 작성(sqlite가 django의 기본 db) [다른 db연동하기](https://github.com/euidong/web-programing/blob/master/Python/MakeBlogUsingDjango/Mysql%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0.md)
+  - database 어떤 것을 사용할 것인지 작성(sqlite가 django의 기본 db) [다른 db연동하기](https://github.com/euidong/web-programing/blob/master/Python/Django/Mysql%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0.md)
   - timezone 확인 하기.
   - INSTALLED_APPS에 사용할 app 추가. (물론 처음 시작할 때 만든 app도 마찬가지) 
   - TEMPLATES에서 'DIRS'는 기본 경로인데 이를 'DIRS': [os.path.join(BASE_DIR, 'templates')] 로 하면 settings.py의 경로에서 templates폴더 안에 있는 것을 기본 경로로 한다. (여기서 os는 python에서 경로를 지정할 때 쓰이는 모듈이다.)
@@ -60,7 +60,7 @@ TIME_ZONE = 'Asia/Seoul'
 ```
 
 ### 7. DB와 MODEL을 연결하기
-  - model은 DB의 table과 mapping 됩니다.
+  - model은 DB의 table과 mapping 됩니다.[참고](https://github.com/euidong/web-programing/blob/master/Python/Django/model%EC%84%A4%EC%A0%95.md)
   - 해당 model에서 만들고 그 형태를 migration으로 만들고(makemigrations), 이를 바탕으로 DB에 반영합니다.(migrate) 
   - 어떤 model을 사용할 것인지 정의해야합니다.
   - 해당 model을 정의하였다면, 이를 바탕으로 database를 생성할 수 있도록 consol을 키고 명령어를 실행해주어야합니다.
@@ -94,7 +94,7 @@ migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 �
   static 일반적인 html문서를 작성한다.
   보통 base.html 같은 형태로 기본적인 틀을 갖추는 html문서이다.
   어떤 css를 적용할 것이고, site에서나 공통적으로 보여줄 어는 요소를 선택한다.
-  
+  [참고](https://github.com/euidong/web-programing/blob/master/Python/Django/template%EC%96%B8%EC%96%B4.md)
 ```html
 {% load static %}
 
@@ -164,7 +164,7 @@ migration은 data를 db에 저장하기 위해 model의 형태를 저장하고 �
   - REST API로 구현하여 Json형태로 return하기 위해서 Response를 이용할 수도 있습니다.(from rest_framework.response import Response)
   - render(request, html문서, 추가로 보내줄 요소) 형태로 return 하는 것을 기본으로 한다.
   - model로 부터 인자를 건내받을 수 있습니다. 즉, DB에 데이터를 넣거나 빼고 조회하는 행위를 수행할 수 있습니다.
-  - 입력을 받을 때는 url의 인자도 받을 수 있습니다.([참고](https://github.com/euidong/web-programing/blob/master/Python/Django/Mysql%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0.md))
+  - 입력을 받을 때는 url의 인자도 받을 수 있습니다.([참고](https://github.com/euidong/web-programing/blob/master/Python/Django/URL%20%EC%84%A4%EC%A0%95%EB%B2%95.md))
 ```python
 from django.shortcuts import render
 from .models import Notice
@@ -190,4 +190,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
-[URL 설정 방법](https://github.com/euidong/web-programing/blob/master/Python/MakeBlogUsingDjango/URL%20%EC%84%A4%EC%A0%95%EB%B2%95.md)
+[URL 설정 방법](https://github.com/euidong/web-programing/blob/master/Python/Django/URL%20%EC%84%A4%EC%A0%95%EB%B2%95.md)
+
+### 11. REST API 적용하기
+[참고](https://github.com/euidong/web-programing/blob/master/Python/Django/REST%20API%20%EA%B5%AC%ED%98%84.md)
