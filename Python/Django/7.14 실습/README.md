@@ -1,3 +1,3 @@
 # environment 구축하기
 
-<img src= "venv.jpg">
+<img src= "venv.JPG">
